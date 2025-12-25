@@ -1,4 +1,4 @@
-import { Notice, Plugin, WorkspaceLeaf } from 'obsidian';
+import { Notice, Plugin, ObsidianProtocolData } from 'obsidian';
 import { RaptureSettings, DEFAULT_SETTINGS, RaptureSettingTab } from './settings';
 import { SyncEngine, SyncResult } from './syncEngine';
 import { DriveApi } from './driveApi';
@@ -107,19 +107,22 @@ export default class RaptureSyncPlugin extends Plugin {
 		}
 	}
 
-	private async handleOAuthCallback(params: { code?: string; error?: string }) {
-		if (params.error) {
-			new Notice(`Authentication failed: ${params.error}`);
+	private async handleOAuthCallback(params: ObsidianProtocolData) {
+		const error = params['error'];
+		const code = params['code'];
+
+		if (error) {
+			new Notice(`Authentication failed: ${error}`);
 			return;
 		}
 
-		if (params.code) {
+		if (code) {
 			try {
-				await this.oauthManager.exchangeCodeForTokens(params.code);
+				await this.oauthManager.exchangeCodeForTokens(code);
 				new Notice('Successfully connected to Google Drive!');
 				this.setupPollingSync();
-			} catch (error) {
-				new Notice(`Failed to complete authentication: ${error}`);
+			} catch (err) {
+				new Notice(`Failed to complete authentication: ${err}`);
 			}
 		}
 	}
