@@ -5,7 +5,7 @@ import type RaptureSyncPlugin from './main';
 // Note: For community plugin distribution, consider routing through API Gateway
 // to avoid exposing client ID in source code
 const OAUTH_CONFIG = {
-	clientId: 'YOUR_CLIENT_ID', // TODO: Replace with actual client ID or use API Gateway
+	clientId: '1001880100001-l2qr9mev2eb86ob498kel7t8d4a31a8g.apps.googleusercontent.com',
 	redirectUri: 'obsidian://rapture-inbox',
 	scope: 'https://www.googleapis.com/auth/drive.file',
 	authEndpoint: 'https://accounts.google.com/o/oauth2/v2/auth',
