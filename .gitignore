@@ -1,0 +1,21 @@
+# Build output
+main.js
+*.js.map
+
+# npm
+node_modules
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# macOS
+.DS_Store
+
+# Obsidian
+data.json
+
+# Environment
+.env
+.env.local

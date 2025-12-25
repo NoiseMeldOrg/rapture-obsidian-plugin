@@ -1,0 +1,50 @@
+/* Rapture Sync Plugin Styles */
+
+.rapture-sync-settings {
+	/* Settings container styles */
+}
+
+.rapture-sync-account {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 12px;
+}
+
+.rapture-sync-account-email {
+	color: var(--text-muted);
+	font-size: 0.9em;
+}
+
+.rapture-sync-status {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px 12px;
+	background-color: var(--background-secondary);
+	border-radius: 4px;
+	margin-top: 12px;
+}
+
+.rapture-sync-status-icon {
+	width: 16px;
+	height: 16px;
+}
+
+.rapture-sync-status-text {
+	color: var(--text-muted);
+	font-size: 0.85em;
+}
+
+.rapture-sync-spinner {
+	animation: rapture-spin 1s linear infinite;
+}
+
+@keyframes rapture-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

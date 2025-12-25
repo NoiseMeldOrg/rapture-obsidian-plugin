@@ -1,0 +1,11 @@
+{
+	"id": "rapture-sync",
+	"name": "Rapture Sync",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"description": "Sync Rapture voice notes from Google Drive to your Obsidian vault. Implements a mailbox pattern: notes are downloaded and then removed from Drive.",
+	"author": "NoiseMeld",
+	"authorUrl": "https://noisemeld.com",
+	"fundingUrl": "https://noisemeld.com/rapture",
+	"isDesktopOnly": true
+}
