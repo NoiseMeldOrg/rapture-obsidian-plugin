@@ -42,20 +42,20 @@ export class RaptureSettingTab extends PluginSettingTab {
 	display(): void {
 		const { containerEl } = this;
 		containerEl.empty();
-		containerEl.addClass('rapture-sync-settings');
+		containerEl.addClass('rapture-inbox-settings');
 
-		containerEl.createEl('h2', { text: 'Rapture Sync Settings' });
+		containerEl.createEl('h2', { text: 'Rapture Inbox Settings' });
 
 		// Google Account Section
 		containerEl.createEl('h3', { text: 'Google Account' });
 
 		if (this.plugin.oauthManager.isAuthenticated()) {
 			// Show connected account
-			const accountDiv = containerEl.createDiv({ cls: 'rapture-sync-account' });
+			const accountDiv = containerEl.createDiv({ cls: 'rapture-inbox-account' });
 			accountDiv.createSpan({ text: 'Connected as: ' });
 			accountDiv.createSpan({
 				text: this.plugin.settings.userEmail || 'Unknown',
-				cls: 'rapture-sync-account-email'
+				cls: 'rapture-inbox-account-email'
 			});
 
 			new Setting(containerEl)
@@ -145,12 +145,12 @@ export class RaptureSettingTab extends PluginSettingTab {
 			});
 
 		// Last Sync Status
-		const statusDiv = containerEl.createDiv({ cls: 'rapture-sync-status' });
+		const statusDiv = containerEl.createDiv({ cls: 'rapture-inbox-status' });
 		this.updateLastSyncDisplay(statusDiv);
 	}
 
 	private updateLastSyncDisplay(container?: HTMLElement) {
-		const statusDiv = container || this.containerEl.querySelector('.rapture-sync-status');
+		const statusDiv = container || this.containerEl.querySelector('.rapture-inbox-status');
 		if (!statusDiv) return;
 
 		statusDiv.empty();
@@ -160,12 +160,12 @@ export class RaptureSettingTab extends PluginSettingTab {
 			const timeAgo = this.getTimeAgo(lastSync);
 			statusDiv.createSpan({
 				text: `Last synced: ${timeAgo}`,
-				cls: 'rapture-sync-status-text'
+				cls: 'rapture-inbox-status-text'
 			});
 		} else {
 			statusDiv.createSpan({
 				text: 'Never synced',
-				cls: 'rapture-sync-status-text'
+				cls: 'rapture-inbox-status-text'
 			});
 		}
 	}

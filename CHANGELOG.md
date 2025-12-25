@@ -9,13 +9,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Initial Release
 
-First public release of Rapture Sync for Obsidian.
+First public release of Rapture Inbox for Obsidian.
 
 ### Added
 
 #### Authentication
 - Google OAuth 2.0 integration for secure Drive access
-- Protocol handler `obsidian://rapture-sync` for OAuth callback
+- Protocol handler `obsidian://rapture-inbox` for OAuth callback
 - Automatic token refresh before expiry (5-minute buffer)
 - Sign out functionality to clear stored credentials
 - User email display when authenticated

@@ -1,8 +1,8 @@
-# Rapture Sync for Obsidian
+# Rapture Inbox for Obsidian
 
 Automatically sync your [Rapture](https://noisemeld.com/rapture) voice notes from Google Drive to your Obsidian vault.
 
-**Rapture** is a hands-free voice capture app for Android that records your thoughts and transcribes them using AI. **Rapture Sync** is the official Obsidian plugin that brings those voice notes into your personal knowledge management system.
+**Rapture** is a hands-free voice capture app for Android that records your thoughts and transcribes them using AI. **Rapture Inbox** is the official Obsidian plugin that brings those voice notes into your personal knowledge management system.
 
 ## Features
 
@@ -23,7 +23,7 @@ Rapture Android App
 Google Drive (Rapture/Obsidian folder)
         |
         v
-Rapture Sync Plugin (downloads files)
+Rapture Inbox Plugin (downloads files)
         |
         v
 Your Obsidian Vault (files appear here)
@@ -44,13 +44,13 @@ This "mailbox" pattern ensures:
 
 1. Open **Obsidian Settings**
 2. Go to **Community Plugins**
-3. Click **Browse** and search for "Rapture Sync"
+3. Click **Browse** and search for "Rapture Inbox"
 4. Click **Install**, then **Enable**
 
 ### Manual Installation
 
 1. Download `main.js`, `styles.css`, and `manifest.json` from the [latest release](https://github.com/NoiseMeldOrg/rapture-obsidian-plugin/releases/latest)
-2. Create a folder called `rapture-sync` in your vault's `.obsidian/plugins/` directory
+2. Create a folder called `rapture-inbox` in your vault's `.obsidian/plugins/` directory
 3. Copy the downloaded files into this folder
 4. Restart Obsidian
 5. Enable the plugin in **Settings > Community Plugins**
@@ -59,7 +59,7 @@ This "mailbox" pattern ensures:
 
 1. Install [BRAT](https://github.com/TfTHacker/obsidian42-brat) plugin
 2. Add this repo: `NoiseMeldOrg/rapture-obsidian-plugin`
-3. Enable Rapture Sync in Community Plugins
+3. Enable Rapture Inbox in Community Plugins
 
 ## Quick Start
 
@@ -72,7 +72,7 @@ This "mailbox" pattern ensures:
 
 ### Step 2: Connect Obsidian Plugin
 
-1. Open **Obsidian Settings > Rapture Sync**
+1. Open **Obsidian Settings > Rapture Inbox**
 2. Click **Connect** to sign in with your Google account
 3. Authorize access to Drive files created by Rapture
 4. Verify your email appears in settings
@@ -165,9 +165,9 @@ source: rapture-android
 
 ### Authentication issues
 
-1. **Sign out and back in**: Settings > Rapture Sync > Sign Out, then Connect
+1. **Sign out and back in**: Settings > Rapture Inbox > Sign Out, then Connect
 2. **Check internet connection**: OAuth requires network access
-3. **Revoke and reauthorize**: Go to [Google Account permissions](https://myaccount.google.com/permissions), revoke Rapture Sync, then reconnect
+3. **Revoke and reauthorize**: Go to [Google Account permissions](https://myaccount.google.com/permissions), revoke Rapture Inbox, then reconnect
 
 ### Sync failures
 
@@ -192,7 +192,7 @@ source: rapture-android
 
 ### Why isn't there bidirectional sync?
 
-By design, Rapture Sync uses a one-way "mailbox" pattern. Voice notes flow from Rapture to Obsidian, not the other way around. This simplifies the architecture and prevents sync conflicts.
+By design, Rapture Inbox uses a one-way "mailbox" pattern. Voice notes flow from Rapture to Obsidian, not the other way around. This simplifies the architecture and prevents sync conflicts.
 
 ### Can I use this on mobile Obsidian?
 
@@ -208,7 +208,7 @@ Currently, the plugin stores settings per-vault. You would need to authenticate 
 
 ### Does this work with Obsidian Sync?
 
-Yes! Rapture Sync writes files to your local vault. Obsidian Sync (or any other sync solution) can then sync those files across devices.
+Yes! Rapture Inbox writes files to your local vault. Obsidian Sync (or any other sync solution) can then sync those files across devices.
 
 ## Development
 

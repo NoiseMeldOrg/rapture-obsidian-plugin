@@ -1,6 +1,6 @@
-# Manual Testing Checklist for Rapture Sync Plugin
+# Manual Testing Checklist for Rapture Inbox Plugin
 
-This document provides step-by-step manual testing procedures for verifying the Rapture Sync plugin works correctly in a real Obsidian environment.
+This document provides step-by-step manual testing procedures for verifying the Rapture Inbox plugin works correctly in a real Obsidian environment.
 
 ## Prerequisites
 
@@ -17,13 +17,13 @@ Before testing, ensure you have:
 
 1. Create a new test vault or use an existing development vault
 2. Navigate to vault's `.obsidian/plugins/` directory
-3. Create folder: `rapture-sync/`
+3. Create folder: `rapture-inbox/`
 4. Copy these files from the plugin build:
    - `main.js`
    - `manifest.json`
    - `styles.css`
 5. Restart Obsidian
-6. Enable "Rapture Sync" in Settings > Community Plugins
+6. Enable "Rapture Inbox" in Settings > Community Plugins
 
 ---
 
@@ -34,7 +34,7 @@ Before testing, ensure you have:
 **Objective:** Verify Google authentication works correctly
 
 **Steps:**
-1. Open Settings > Rapture Sync
+1. Open Settings > Rapture Inbox
 2. Click "Connect" button
 3. Browser opens to Google OAuth consent screen
 4. Authorize the plugin
@@ -48,7 +48,7 @@ Before testing, ensure you have:
 
 **Notes:**
 ```
-OAuth redirect URI: obsidian://rapture-sync
+OAuth redirect URI: obsidian://rapture-inbox
 Scope: drive.file
 ```
 
@@ -59,7 +59,7 @@ Scope: drive.file
 **Objective:** Verify destination folder setting works
 
 **Steps:**
-1. Navigate to Settings > Rapture Sync
+1. Navigate to Settings > Rapture Inbox
 2. Change destination folder from "Rapture/" to "VoiceNotes/"
 3. Trigger a sync
 4. Verify files appear in new folder
@@ -81,7 +81,7 @@ Scope: drive.file
 - At least one file in Drive's Rapture/Obsidian folder
 
 **Steps:**
-1. Open Settings > Rapture Sync
+1. Open Settings > Rapture Inbox
 2. Click "Sync Now" button
 3. Wait for sync to complete
 

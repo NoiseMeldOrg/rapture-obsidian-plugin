@@ -1,6 +1,6 @@
-# Contributing to Rapture Sync
+# Contributing to Rapture Inbox
 
-Thank you for your interest in contributing to Rapture Sync! This document provides guidelines for contributing to this project.
+Thank you for your interest in contributing to Rapture Inbox! This document provides guidelines for contributing to this project.
 
 ## Table of Contents
 
@@ -54,13 +54,13 @@ npm run dev
 ### Testing in Obsidian
 
 1. Create a test vault or use an existing development vault
-2. Create `.obsidian/plugins/rapture-sync/` directory
+2. Create `.obsidian/plugins/rapture-inbox/` directory
 3. Symlink or copy build output:
    ```bash
    # On macOS/Linux
-   ln -s $(pwd)/main.js /path/to/vault/.obsidian/plugins/rapture-sync/
-   ln -s $(pwd)/manifest.json /path/to/vault/.obsidian/plugins/rapture-sync/
-   ln -s $(pwd)/styles.css /path/to/vault/.obsidian/plugins/rapture-sync/
+   ln -s $(pwd)/main.js /path/to/vault/.obsidian/plugins/rapture-inbox/
+   ln -s $(pwd)/manifest.json /path/to/vault/.obsidian/plugins/rapture-inbox/
+   ln -s $(pwd)/styles.css /path/to/vault/.obsidian/plugins/rapture-inbox/
    ```
 4. Enable the plugin in Obsidian settings
 5. Open DevTools (Ctrl+Shift+I) to see console logs
@@ -236,7 +236,7 @@ npm run build
 To submit this plugin to the Obsidian community marketplace:
 
 1. **Verify Requirements**
-   - [ ] Plugin has a unique ID (`rapture-sync`)
+   - [ ] Plugin has a unique ID (`rapture-inbox`)
    - [ ] `manifest.json` is complete and valid
    - [ ] `versions.json` maps versions to Obsidian requirements
    - [ ] README.md provides clear documentation
@@ -253,8 +253,8 @@ To submit this plugin to the Obsidian community marketplace:
    Edit `community-plugins.json` and add:
    ```json
    {
-     "id": "rapture-sync",
-     "name": "Rapture Sync",
+     "id": "rapture-inbox",
+     "name": "Rapture Inbox",
      "author": "NoiseMeld",
      "description": "Sync Rapture voice notes from Google Drive to your Obsidian vault",
      "repo": "NoiseMeldOrg/rapture-obsidian-plugin"
@@ -262,7 +262,7 @@ To submit this plugin to the Obsidian community marketplace:
    ```
 
 4. **Submit PR**
-   - Title: "Add Rapture Sync plugin"
+   - Title: "Add Rapture Inbox plugin"
    - Description: Brief explanation of what the plugin does
    - Link to plugin repository
 

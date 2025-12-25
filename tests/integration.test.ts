@@ -1,5 +1,5 @@
 /**
- * Integration Tests for Rapture Sync Plugin
+ * Integration Tests for Rapture Inbox Plugin
  *
  * These tests verify the end-to-end integration of all plugin components.
  * For actual Obsidian vault testing, see MANUAL_TESTING_CHECKLIST.md
@@ -30,7 +30,7 @@ function createMockPlugin(settings: Partial<RaptureSettings> = {}) {
     saveSettings: jest.fn().mockResolvedValue(undefined),
     loadData: jest.fn().mockResolvedValue(null),
     saveData: jest.fn().mockResolvedValue(undefined),
-    manifest: { id: 'rapture-sync' },
+    manifest: { id: 'rapture-inbox' },
   };
 }
 
@@ -354,7 +354,7 @@ source: rapture-android
       const authUrl = oauthManager.buildAuthUrl();
 
       expect(authUrl).toContain('accounts.google.com');
-      expect(authUrl).toContain('redirect_uri=obsidian%3A%2F%2Frapture-sync');
+      expect(authUrl).toContain('redirect_uri=obsidian%3A%2F%2Frapture-inbox');
       expect(authUrl).toContain('scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fdrive.file');
       expect(authUrl).toContain('response_type=code');
       expect(authUrl).toContain('access_type=offline');

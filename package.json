@@ -1,7 +1,7 @@
 {
-	"name": "rapture-sync",
+	"name": "rapture-inbox",
 	"version": "1.0.0",
-	"description": "Sync Rapture voice notes from Google Drive to your Obsidian vault",
+	"description": "Import Rapture voice notes from Google Drive to your Obsidian vault",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
@@ -17,7 +17,8 @@
 		"rapture",
 		"voice-notes",
 		"google-drive",
-		"sync"
+		"inbox",
+		"import"
 	],
 	"author": "NoiseMeld",
 	"license": "MIT",

@@ -55,7 +55,7 @@ describe('OAuthManager', () => {
       const url = oauthManager.buildAuthUrl();
       expect(url).toContain('redirect_uri=');
       expect(url).toContain('obsidian');
-      expect(url).toContain('rapture-sync');
+      expect(url).toContain('rapture-inbox');
     });
 
     it('requests offline access', () => {

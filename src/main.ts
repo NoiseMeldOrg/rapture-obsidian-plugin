@@ -12,7 +12,7 @@ export default class RaptureSyncPlugin extends Plugin {
 	private syncIntervalId: number | null = null;
 
 	async onload() {
-		console.log('Loading Rapture Sync plugin');
+		console.log('Loading Rapture Inbox plugin');
 
 		await this.loadSettings();
 
@@ -29,7 +29,7 @@ export default class RaptureSyncPlugin extends Plugin {
 		this.addSettingTab(new RaptureSettingTab(this.app, this));
 
 		// Register protocol handler for OAuth redirect
-		this.registerObsidianProtocolHandler('rapture-sync', async (params) => {
+		this.registerObsidianProtocolHandler('rapture-inbox', async (params) => {
 			await this.handleOAuthCallback(params);
 		});
 
@@ -67,7 +67,7 @@ export default class RaptureSyncPlugin extends Plugin {
 	}
 
 	onunload() {
-		console.log('Unloading Rapture Sync plugin');
+		console.log('Unloading Rapture Inbox plugin');
 		this.clearPollingSync();
 	}
 
