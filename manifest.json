@@ -3,7 +3,7 @@
 	"name": "Rapture Inbox",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
-	"description": "Import Rapture voice notes from Google Drive to your Obsidian vault. Uses a mailbox pattern: notes are downloaded and then removed from Drive.",
+	"description": "Import Rapture voice notes from Google Drive. Uses a mailbox pattern: notes are downloaded and then removed from Drive.",
 	"author": "NoiseMeld",
 	"authorUrl": "https://noisemeld.com",
 	"fundingUrl": "https://noisemeld.com/rapture",
