@@ -1,6 +1,6 @@
 {
 	"name": "rapture-inbox",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Import Rapture voice notes from Google Drive to your Obsidian vault",
 	"main": "main.js",
 	"scripts": {

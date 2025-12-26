@@ -46,12 +46,18 @@ export default class RaptureSyncPlugin extends Plugin {
 			id: 'open-settings',
 			name: 'Open settings',
 			callback: () => {
-				// Open settings tab using Obsidian command
-				// eslint-disable-next-line @typescript-eslint/no-explicit-any
-				const setting = (this.app as unknown as { setting: { open: () => void; openTabById: (id: string) => void } }).setting;
-				if (setting) {
-					setting.open();
-					setting.openTabById(this.manifest.id);
+				// Open settings tab using Obsidian's internal setting API
+				// Type assertion required as 'setting' is not in the public API
+				interface AppWithSettings {
+					setting?: {
+						open: () => void;
+						openTabById: (id: string) => void;
+					};
+				}
+				const appWithSettings = this.app as unknown as AppWithSettings;
+				if (appWithSettings.setting) {
+					appWithSettings.setting.open();
+					appWithSettings.setting.openTabById(this.manifest.id);
 				}
 			}
 		});

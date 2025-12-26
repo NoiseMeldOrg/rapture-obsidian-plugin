@@ -44,7 +44,7 @@ export class RaptureSettingTab extends PluginSettingTab {
 		containerEl.empty();
 		containerEl.addClass('rapture-inbox-settings');
 
-		new Setting(containerEl).setName('Rapture inbox settings').setHeading();
+		// Main heading removed per Obsidian plugin guidelines (avoid plugin name and "settings" in headings)
 
 		// Google account section
 		new Setting(containerEl).setName('Google account').setHeading();
@@ -75,13 +75,13 @@ export class RaptureSettingTab extends PluginSettingTab {
 				.addButton(button => button
 					.setButtonText('Connect')
 					.setCta()
-					.onClick(async () => {
-						await this.plugin.oauthManager.startAuthFlow();
+					.onClick(() => {
+						this.plugin.oauthManager.startAuthFlow();
 					}));
 		}
 
 		// Destination folder
-		new Setting(containerEl).setName('Sync settings').setHeading();
+		new Setting(containerEl).setName('Synchronization').setHeading();
 
 		new Setting(containerEl)
 			.setName('Destination folder')
