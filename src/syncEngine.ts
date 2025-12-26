@@ -1,4 +1,4 @@
-import { App, Notice, TFolder, normalizePath } from 'obsidian';
+import { App, normalizePath } from 'obsidian';
 import type { DriveApi, DriveFile } from './driveApi';
 import type { RaptureSettings } from './settings';
 
@@ -79,7 +79,7 @@ export class SyncEngine {
 						}
 					}
 				} catch (error) {
-					result.errors.push(`Failed to process ${file.name}: ${error}`);
+					result.errors.push(`Failed to process ${file.name}: ${error instanceof Error ? error.message : String(error)}`);
 				}
 			}
 
@@ -89,7 +89,7 @@ export class SyncEngine {
 
 		} catch (error) {
 			result.success = false;
-			result.errors.push(`Sync failed: ${error}`);
+			result.errors.push(`Sync failed: ${error instanceof Error ? error.message : String(error)}`);
 			this.status = 'error';
 			return result;
 		}
@@ -119,7 +119,7 @@ export class SyncEngine {
 			let filePath = normalizePath(`${destFolder}/${file.name}`);
 
 			// Handle duplicate filenames
-			filePath = await this.resolveFilePath(filePath);
+			filePath = this.resolveFilePath(filePath);
 
 			// Create file in vault
 			await this.app.vault.create(filePath, content);
@@ -131,7 +131,7 @@ export class SyncEngine {
 		}
 	}
 
-	private async resolveFilePath(originalPath: string): Promise<string> {
+	private resolveFilePath(originalPath: string): string {
 		const existingFile = this.app.vault.getAbstractFileByPath(originalPath);
 		if (!existingFile) {
 			return originalPath;

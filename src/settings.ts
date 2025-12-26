@@ -44,10 +44,10 @@ export class RaptureSettingTab extends PluginSettingTab {
 		containerEl.empty();
 		containerEl.addClass('rapture-inbox-settings');
 
-		containerEl.createEl('h2', { text: 'Rapture Inbox Settings' });
+		new Setting(containerEl).setName('Rapture inbox settings').setHeading();
 
-		// Google Account Section
-		containerEl.createEl('h3', { text: 'Google Account' });
+		// Google account section
+		new Setting(containerEl).setName('Google account').setHeading();
 
 		if (this.plugin.oauthManager.isAuthenticated()) {
 			// Show connected account
@@ -62,7 +62,7 @@ export class RaptureSettingTab extends PluginSettingTab {
 				.setName('Sign out')
 				.setDesc('Disconnect your Google account')
 				.addButton(button => button
-					.setButtonText('Sign Out')
+					.setButtonText('Sign out')
 					.onClick(async () => {
 						await this.plugin.oauthManager.signOut();
 						this.display(); // Refresh settings UI
@@ -70,7 +70,7 @@ export class RaptureSettingTab extends PluginSettingTab {
 		} else {
 			// Show connect button
 			new Setting(containerEl)
-				.setName('Connect Google Account')
+				.setName('Connect Google account')
 				.setDesc('Sign in with Google to sync your Rapture notes')
 				.addButton(button => button
 					.setButtonText('Connect')
@@ -80,8 +80,8 @@ export class RaptureSettingTab extends PluginSettingTab {
 					}));
 		}
 
-		// Destination Folder
-		containerEl.createEl('h3', { text: 'Sync Settings' });
+		// Destination folder
+		new Setting(containerEl).setName('Sync settings').setHeading();
 
 		new Setting(containerEl)
 			.setName('Destination folder')
@@ -121,8 +121,8 @@ export class RaptureSettingTab extends PluginSettingTab {
 					await this.plugin.saveSettings();
 				}));
 
-		// Manual Sync
-		containerEl.createEl('h3', { text: 'Sync Status' });
+		// Manual sync
+		new Setting(containerEl).setName('Sync status').setHeading();
 
 		new Setting(containerEl)
 			.setName('Sync now')
@@ -130,14 +130,14 @@ export class RaptureSettingTab extends PluginSettingTab {
 			.addButton(button => {
 				this.syncButton = button;
 				button
-					.setButtonText('Sync Now')
+					.setButtonText('Sync now')
 					.onClick(async () => {
 						button.setButtonText('Syncing...');
 						button.setDisabled(true);
 						try {
 							await this.plugin.manualSync();
 						} finally {
-							button.setButtonText('Sync Now');
+							button.setButtonText('Sync now');
 							button.setDisabled(false);
 							this.updateLastSyncDisplay();
 						}

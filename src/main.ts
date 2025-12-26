@@ -12,7 +12,7 @@ export default class RaptureSyncPlugin extends Plugin {
 	private syncIntervalId: number | null = null;
 
 	async onload() {
-		console.log('Loading Rapture Inbox plugin');
+		console.debug('Loading Rapture Inbox plugin');
 
 		await this.loadSettings();
 
@@ -46,8 +46,9 @@ export default class RaptureSyncPlugin extends Plugin {
 			id: 'open-settings',
 			name: 'Open settings',
 			callback: () => {
-				// Open settings tab
-				const setting = (this.app as any).setting;
+				// Open settings tab using Obsidian command
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
+				const setting = (this.app as unknown as { setting: { open: () => void; openTabById: (id: string) => void } }).setting;
 				if (setting) {
 					setting.open();
 					setting.openTabById(this.manifest.id);
@@ -67,7 +68,7 @@ export default class RaptureSyncPlugin extends Plugin {
 	}
 
 	onunload() {
-		console.log('Unloading Rapture Inbox plugin');
+		console.debug('Unloading Rapture Inbox plugin');
 		this.clearPollingSync();
 	}
 
@@ -93,8 +94,8 @@ export default class RaptureSyncPlugin extends Plugin {
 		}
 
 		const intervalMs = this.settings.syncIntervalMinutes * 60 * 1000;
-		this.syncIntervalId = window.setInterval(async () => {
-			await this.syncEngine.syncNow();
+		this.syncIntervalId = window.setInterval(() => {
+			void this.syncEngine.syncNow();
 		}, intervalMs);
 
 		this.registerInterval(this.syncIntervalId);
@@ -122,7 +123,7 @@ export default class RaptureSyncPlugin extends Plugin {
 				new Notice('Successfully connected to Google Drive!');
 				this.setupPollingSync();
 			} catch (err) {
-				new Notice(`Failed to complete authentication: ${err}`);
+				new Notice(`Failed to complete authentication: ${err instanceof Error ? err.message : String(err)}`);
 			}
 		}
 	}

@@ -23,7 +23,7 @@ export class OAuthManager {
 		return !!this.plugin.settings.refreshToken;
 	}
 
-	async startAuthFlow(): Promise<void> {
+	startAuthFlow(): void {
 		const authUrl = this.buildAuthUrl();
 
 		// Open browser for OAuth consent
